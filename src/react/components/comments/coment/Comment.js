@@ -1,5 +1,6 @@
 
 function Comment({comment}) {
+
     return (<div>
         <br/>
         Name: {comment.name} <br/>

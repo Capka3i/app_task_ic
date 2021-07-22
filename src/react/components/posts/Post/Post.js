@@ -35,6 +35,7 @@ function Post(props) {
             setPosts(props.post)
             }
     }, [change])
+
     useEffect(() => {
         if (remove)
             {
@@ -73,14 +74,19 @@ function Post(props) {
             Body: {posts.body} <br/>
 
             <button onClick = {removeForm}>Delete post</button>
-            {show ? <form onSubmit = {submit}>
+
+            {show ?
+                <form onSubmit = {submit}>
                 Title: <input type = "text" name = 'title'/><br/>
                 Body: <input type = "text" name = 'body'/><br/>
                 <button>Sent</button>
-            </form> : <button onClick = {showForm}>Change post</button>}
+            </form> :
+                <button onClick = {showForm}>Change post</button>}
+
             <Link to = {{pathname: '/comments', search: 'postId=' + id}}>
                 <button>Show comments</button>
             </Link>
+
             <br/>
             <br/></div>}
     </div>);

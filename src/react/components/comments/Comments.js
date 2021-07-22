@@ -13,7 +13,6 @@ function Comments(props) {
             .then(value => setComments([...value]))
     }, {});
 
-    console.log(comments)
     return (<div>
         {comments.map((value, index) => <Comment key={index} comment={value}/>)}
     </div>);

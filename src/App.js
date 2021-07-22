@@ -10,12 +10,14 @@ function App() {
     return (<div>
         <Router>
             <Link to = {"/users"}>Users</Link>
+
             <Switch>
                 <Route exact = {true} path = {"/users"} component = {Users}/>
                 <Route exact = {true} path = {"/users/:id"} component = {UserDetails}/>
                 <Route exact = {true} path = {'/posts'} component = {Posts}/>
                 <Route exact = {true} path = {'/comments'} component = {Comments}/>
             </Switch>
+
         </Router>
     </div>);
 }

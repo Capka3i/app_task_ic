@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 
 function UserDetails(props) {
     const {params: {id}} = props.match;
-    let [userInfo, setUserInfo] = useState([]);
+    const [userInfo, setUserInfo] = useState([]);
 
     useEffect(() => {
         fetch("https://jsonplaceholder.typicode.com/users/")
