@@ -1,4 +1,6 @@
+
 import {Link} from 'react-router-dom';
+import {buttonStyle, styleUser} from "../../constElements/styleConst";
 
 function User(props) {
     const {
@@ -7,7 +9,9 @@ function User(props) {
         }, url
     } = props;
 
-    return (<div>
+
+
+    return (<div style={styleUser}>
         <br/>
         <div>
             {name}
@@ -16,7 +20,7 @@ function User(props) {
         </div>
 
         <Link to = {url + '/' + id}>
-            <button>Details</button>
+            <button style={buttonStyle}>Details</button>
         </Link>
 
     </div>);

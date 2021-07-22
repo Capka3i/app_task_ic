@@ -5,11 +5,17 @@ import Users from "./react/components/users/Users";
 import UserDetails from "./react/components/users/user/userDetails/UserDetails";
 import Posts from "./react/components/posts/Posts";
 import Comments from "./react/components/comments/Comments";
+import {buttonStyle, styleHead} from "./react/components/constElements/styleConst";
+import React from "react";
+
+
+
+
 
 function App() {
     return (<div>
         <Router>
-            <Link to = {"/users"}>Users</Link>
+            <div style = {styleHead}><button style={buttonStyle}><Link to = {"/users"}>Users</Link></button></div>
 
             <Switch>
                 <Route exact = {true} path = {"/users"} component = {Users}/>

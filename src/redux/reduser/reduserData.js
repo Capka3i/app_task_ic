@@ -5,11 +5,9 @@ const someInitialState = {
 }
 
 export const reduserData = (state = someInitialState, action) => {
-    console.log(action)
     switch (action.type)
         {
         case SET_USERS:
-            console.log(action.payload)
             return {
                 ...state, users: action.payload
 

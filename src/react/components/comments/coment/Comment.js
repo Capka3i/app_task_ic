@@ -1,7 +1,8 @@
+import {styleComments} from "../../constElements/styleConst";
 
 function Comment({comment}) {
 
-    return (<div>
+    return (<div style={styleComments}>
         <br/>
         Name: {comment.name} <br/>
         Email: {comment.email} <br/>

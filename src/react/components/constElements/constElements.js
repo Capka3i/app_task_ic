@@ -1,0 +1,7 @@
+export const URLJSON = 'https://jsonplaceholder.typicode.com/'
+export const COMMENTS = 'comments'
+export const POSTS = 'posts'
+export const USERS = 'users'
+export const POST = 'POST'
+export const PUT = 'PUT'
+export const DELETE = 'DELETE'

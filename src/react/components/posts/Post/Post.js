@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {logDOM} from "@testing-library/react";
+import {DELETE, POSTS, PUT, URLJSON} from "../../constElements/constElements";
+import {buttonStyle, inputStyle} from "../../constElements/styleConst";
 
 function Post(props) {
+
     const {search} = props;
     const {id} = props.post;
 
@@ -18,8 +20,8 @@ function Post(props) {
     useEffect(() => {
         if (change)
             {
-            ;fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
-                method: 'PUT', body: JSON.stringify({
+            fetch(URLJSON + POSTS + '/' + id, {
+                method: PUT, body: JSON.stringify({
                     userId: someSearch, id: id, title: newTitle, body: newBody,
                 }), headers: {
                     'Content-type': 'application/json; charset=UTF-8',
@@ -27,9 +29,10 @@ function Post(props) {
             })
                 .then(value => value.json())
                 .then(value => setPosts(value))
+
             setChange(!change)
             setShow(!show)
-            console.log(posts)
+
             } else
             {
             setPosts(props.post)
@@ -39,8 +42,8 @@ function Post(props) {
     useEffect(() => {
         if (remove)
             {
-            fetch('https://jsonplaceholder.typicode.com/posts/' + id, {
-                method: 'DELETE'
+            fetch(URLJSON + POSTS + '/' + id, {
+                method: DELETE
             })
 
             }
@@ -55,8 +58,7 @@ function Post(props) {
         e.preventDefault()
         setNewTitle(e.target.title.value);
         setNewBody(e.target.body.value);
-        console.log(e.target.title.value)
-        console.log(e.target.body.value)
+
         setChange(!change)
     }
 
@@ -73,18 +75,16 @@ function Post(props) {
             Title: {posts.title} <br/>
             Body: {posts.body} <br/>
 
-            <button onClick = {removeForm}>Delete post</button>
+            <button onClick = {removeForm} style={buttonStyle}>Delete post</button>
 
-            {show ?
-                <form onSubmit = {submit}>
-                Title: <input type = "text" name = 'title'/><br/>
-                Body: <input type = "text" name = 'body'/><br/>
-                <button>Sent</button>
-            </form> :
-                <button onClick = {showForm}>Change post</button>}
+            {show ? <form onSubmit = {submit}>
+                Title: <input type = "text" name = 'title' style={inputStyle}/><br/>
+                Body: <input type = "text" name = 'body' style={inputStyle}/><br/>
+                <button style={buttonStyle}>Sent</button>
+            </form> : <button onClick = {showForm} style={buttonStyle}>Change post</button>}
 
             <Link to = {{pathname: '/comments', search: 'postId=' + id}}>
-                <button>Show comments</button>
+                <button style={buttonStyle}>Show comments</button>
             </Link>
 
             <br/>
